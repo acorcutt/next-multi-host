@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { useRouter } from 'next/router';
-export default function Home({ host, time, path }) {
+export default function Home({ host, time, slug }) {
   const router = useRouter();
 
   // Host available on query from router if blocking or fallback
@@ -27,7 +27,7 @@ export default function Home({ host, time, path }) {
         Host: <i>{host}</i>
       </h1>
       <p>
-        Path: <i>/{path}</i> {' - '}
+        Path: <i>/{slug}</i> {' - '}
         Generated At: <i>{time}</i>
       </p>
       <div>
@@ -42,12 +42,12 @@ export async function getStaticProps(context) {
   console.log('getStaticProps', context);
 
   const host = context.params.host;
-  const path = (context.params.path || []).join('/');
+  const slug = (context.params.slug || []).join('/');
   const time = Date.now();
   return {
     props: {
       host,
-      path,
+      slug,
       time,
     },
     revalidate: 10,
