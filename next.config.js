@@ -21,6 +21,16 @@ module.exports = {
             value: '(?<host>.*)',
           },
         ],
+        source: '/posts/:id',
+        destination: '/:host/posts/:id',
+      },
+      {
+        has: [
+          {
+            type: 'host',
+            value: '(?<host>.*)',
+          },
+        ],
         source: '/:slug*',
         destination: '/:host/:slug*',
       },
