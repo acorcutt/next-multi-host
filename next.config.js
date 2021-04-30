@@ -31,8 +31,8 @@ module.exports = {
             value: '(?<host>.*)',
           },
         ],
-        source: '/:slug*',
-        destination: '/:host/:slug*',
+        source: '/slugs/:slug*',
+        destination: '/:host/slugs/:slug*',
       },
     ];
   },
