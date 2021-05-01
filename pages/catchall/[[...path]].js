@@ -2,8 +2,8 @@ import Head from 'next/head';
 
 import { useRouter } from 'next/router';
 
-import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 export default function CatchAll({ host, time, path }) {
   const router = useRouter();
 
@@ -36,8 +36,8 @@ export async function getStaticProps(context) {
   // Available on server render
   console.log('getStaticProps', context);
 
-  const host = context.params.host;
-  const path = (context.params.path || []).join('/');
+  const host = context.params.path[0];
+  const path = context.params.path.slice(1).join('/');
   const time = Date.now();
 
   return {
