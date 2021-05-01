@@ -41,8 +41,38 @@ module.exports = {
             value: '(?<host>.*)',
           },
         ],
-        source: '/:slug*',
-        destination: '/:host/slugs/:slug*',
+        source: '/:a',
+        destination: '/:host/slugs/:a',
+      },
+      {
+        has: [
+          {
+            type: 'host',
+            value: '(?<host>.*)',
+          },
+        ],
+        source: '/:a/:b',
+        destination: '/:host/slugs/:a/:b',
+      },
+      {
+        has: [
+          {
+            type: 'host',
+            value: '(?<host>.*)',
+          },
+        ],
+        source: '/:a/:b/:c',
+        destination: '/:host/slugs/:a/:b/:c',
+      },
+      {
+        has: [
+          {
+            type: 'host',
+            value: '(?<host>.*)',
+          },
+        ],
+        source: '/:a/:b/:c/:d',
+        destination: '/:host/slugs/:a/:b/:c/:d',
       },
     ];
   },
