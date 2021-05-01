@@ -42,7 +42,7 @@ module.exports = {
           },
         ],
         source: '/:a',
-        destination: '/:host/slugs/:a',
+        destination: '/:host/catchall/:a',
       },
       {
         has: [
@@ -52,7 +52,7 @@ module.exports = {
           },
         ],
         source: '/:a/:b',
-        destination: '/:host/slugs/:a/:b',
+        destination: '/:host/catchall/:a/:b',
       },
       {
         has: [
@@ -62,7 +62,7 @@ module.exports = {
           },
         ],
         source: '/:a/:b/:c',
-        destination: '/:host/slugs/:a/:b/:c',
+        destination: '/:host/catchall/:a/:b/:c',
       },
       {
         has: [
@@ -72,7 +72,7 @@ module.exports = {
           },
         ],
         source: '/:a/:b/:c/:d',
-        destination: '/:host/slugs/:a/:b/:c/:d',
+        destination: '/:host/catchall/:a/:b/:c/:d',
       },
     ];
   },
