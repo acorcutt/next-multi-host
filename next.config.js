@@ -34,16 +34,6 @@ module.exports = {
         source: '/slugs/:slug*',
         destination: '/:host/slugs/:slug*',
       },
-      {
-        has: [
-          {
-            type: 'host',
-            value: '(?<host>.*)',
-          },
-        ],
-        source: '/:path*',
-        destination: '/catchall/:host/:path*',
-      },
     ];
   },
 };
