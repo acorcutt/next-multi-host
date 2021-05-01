@@ -4,14 +4,14 @@ import { useRouter } from 'next/router';
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-export default function CatchAll({ host, path, time }) {
+export default function CatchAll({ host, time, path }) {
   const router = useRouter();
 
   // Host available on query from router if blocking or fallback
   const query = router.query;
 
   // Or params
-  console.log(host, path, time, query);
+  console.log(host, time, path, query);
 
   return (
     <div>
@@ -37,10 +37,9 @@ export async function getStaticProps(context) {
   console.log('getStaticProps', context);
 
   const host = context.params.host;
-
+  const path = (context.params.path || []).join('/');
   const time = Date.now();
 
-  const path = [context.params.a, context.params.b, context.params.c, context.params.d].filter(Boolean).join('/');
   return {
     props: {
       host,
