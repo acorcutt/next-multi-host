@@ -42,8 +42,8 @@ module.exports = {
               value: '(?<host>.*)',
             },
           ],
-          source: '/catchall/:path*',
-          destination: '/hosts/:host/catchall/:path*',
+          source: '/:part/:path*',
+          destination: '/hosts/:host/catchall/:part/:path*',
         },
       ],
     };
