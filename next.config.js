@@ -4,7 +4,7 @@ module.exports = {
   },
   async rewrites() {
     return {
-      afterFiles: [
+      beforeFiles: [
         {
           has: [
             {
@@ -35,6 +35,8 @@ module.exports = {
           source: '/slugs/:slug*',
           destination: '/hosts/:host/slugs/:slug*',
         },
+      ],
+      afterFiles: [
         {
           has: [
             {
