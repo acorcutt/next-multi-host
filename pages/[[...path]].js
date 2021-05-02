@@ -22,7 +22,7 @@ export default function Slug({ host, time, path }) {
       </Head>
       <Header host={host} />
       <h1>
-        Catch All - Host: <i>{host}</i>
+        Catch All With Path - Host: <i>{host}</i>
       </h1>
       <p>
         Path: <i>/{path}</i> {' - '}
@@ -37,8 +37,9 @@ export async function getStaticProps(context) {
   // Available on server render
   console.log('getStaticProps', context);
 
-  const host = context.params.host;
-  const path = (context.params.path || []).join('/');
+  // If this route catches path then host is the 1st part
+  const host = context.params.path ? context.params.path[0] : null;
+  const path = (context.params.path?.slice(1) || []).join('/');
   const time = Date.now();
   return {
     props: {

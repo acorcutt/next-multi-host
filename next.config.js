@@ -35,8 +35,6 @@ module.exports = {
           source: '/slugs/:slug*',
           destination: '/hosts/:host/slugs/:slug*',
         },
-      ],
-      fallback: [
         {
           has: [
             {
@@ -45,7 +43,7 @@ module.exports = {
             },
           ],
           source: '/:path*',
-          destination: '/hosts/:host/catchall/:path*',
+          destination: '/:host/:path*',
         },
       ],
     };
