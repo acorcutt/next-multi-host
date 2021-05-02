@@ -42,19 +42,19 @@ module.exports = {
               value: '(?<host>.*)',
             },
           ],
-          source: '/:dummy/:path*',
-          destination: '/:host/:dummy/:path*',
+          source: '/:part/:path*',
+          destination: '/catchall/:host/:part/:path*',
         },
-        {
-          has: [
-            {
-              type: 'host',
-              value: '(?<host>.*)',
-            },
-          ],
-          source: '/:path*',
-          destination: '/:host/:path*',
-        },
+        // {
+        //   has: [
+        //     {
+        //       type: 'host',
+        //       value: '(?<host>.*)',
+        //     },
+        //   ],
+        //   source: '/:path*',
+        //   destination: '/catchall/:host/:path*',
+        // },
       ],
     };
   },
