@@ -21,7 +21,9 @@ export default function Post({ host, id, time }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header host={host} />
-      <h1>Posts - Host: {host}</h1>
+      <h1>
+        Posts - Host: <i>{host}</i>
+      </h1>
       <p>
         <b>Generated At:</b>
         <i>{time}</i>
