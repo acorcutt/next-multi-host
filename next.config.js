@@ -12,7 +12,7 @@ module.exports = {
           },
         ],
         source: '/',
-        destination: '/:host',
+        destination: '/hosts/:host',
       },
       {
         has: [
@@ -22,7 +22,7 @@ module.exports = {
           },
         ],
         source: '/posts/:id',
-        destination: '/:host/posts/:id',
+        destination: '/hosts/:host/posts/:id',
       },
       {
         has: [
@@ -32,7 +32,7 @@ module.exports = {
           },
         ],
         source: '/slugs/:slug*',
-        destination: '/:host/slugs/:slug*',
+        destination: '/hosts/:host/slugs/:slug*',
       },
     ];
   },
