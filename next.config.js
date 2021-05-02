@@ -42,6 +42,16 @@ module.exports = {
               value: '(?<host>.*)',
             },
           ],
+          source: '/:dummy/:path*',
+          destination: '/:host/:dummy/:path*',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
           source: '/:path*',
           destination: '/:host/:path*',
         },

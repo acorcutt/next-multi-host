@@ -4,14 +4,14 @@ import { useRouter } from 'next/router';
 
 import Header from 'components/header';
 import Footer from 'components/footer';
-export default function Slug({ host, time, path }) {
+export default function CatchAll({ host, time, path }) {
   const router = useRouter();
 
   // Host available on query from router if blocking or fallback
   const query = router.query;
 
   // Or params
-  console.log(host, time, path, query);
+  console.log('CatchAll', host, time, path, query);
 
   return (
     <div>
@@ -35,7 +35,7 @@ export default function Slug({ host, time, path }) {
 
 export async function getStaticProps(context) {
   // Available on server render
-  console.log('getStaticProps', context);
+  console.log('getStaticProps', '[[...path]].js', context);
 
   // Host is available if this catchall catches it
   const host = context.params.host;
