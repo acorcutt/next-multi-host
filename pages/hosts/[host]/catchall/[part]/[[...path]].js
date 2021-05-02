@@ -39,7 +39,7 @@ export async function getStaticProps(context) {
 
   // Host is available if this catchall catches it
   const host = context.params.host;
-  const path = (context.params.path || []).join('/');
+  const path = [context.params.part, ...(context.params.path || [])].filter(Boolean).join('/');
   const time = Date.now();
   return {
     props: {
