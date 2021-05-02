@@ -42,8 +42,38 @@ module.exports = {
               value: '(?<host>.*)',
             },
           ],
-          source: '/:part/:path*',
-          destination: '/hosts/:host/catchall/:part/:path*',
+          source: '/:part1',
+          destination: '/hosts/:host/catchall/:part1/__/__/__',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/:part1/:part2',
+          destination: '/hosts/:host/catchall/:part1/:part2/__/__',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/:part1/:part2/:part3',
+          destination: '/hosts/:host/catchall/:part1/:part2/:part3/__',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/:part1/:part2/:part3/:part4',
+          destination: '/hosts/:host/catchall/:part1/:part2/:part3/:part4',
         },
       ],
     };

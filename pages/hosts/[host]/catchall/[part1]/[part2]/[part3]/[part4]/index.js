@@ -22,7 +22,7 @@ export default function CatchAll({ host, time, path }) {
       </Head>
       <Header host={host} />
       <h1>
-        Catch All With Host - Host: <i>{host}</i>
+        Catch All With Parts - Host: <i>{host}</i>
       </h1>
       <p>
         Path: <i>/{path}</i> {' - '}
@@ -35,11 +35,11 @@ export default function CatchAll({ host, time, path }) {
 
 export async function getStaticProps(context) {
   // Available on server render
-  console.log('getStaticProps', '[[...path]].js', context);
+  console.log('getStaticProps', context);
 
   // Host is available if this catchall catches it
   const host = context.params.host;
-  const path = [context.params.part, ...(context.params.path || [])].filter(Boolean).join('/');
+  const path = [context.params.part1, context.params.part2, context.params.part3, context.params.part4].filter(Boolean).join('/');
   const time = Date.now();
   return {
     props: {
