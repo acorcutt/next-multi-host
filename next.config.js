@@ -20,34 +20,9 @@ module.exports = {
             type: 'host',
             value: '(?<host>.*)',
           },
-          {
-            type: 'header',
-            key: 'accept-encoding',
-            value: '(?<encoding>.*)',
-          },
-          {
-            type: 'header',
-            key: 'cache-control',
-            value: '(?<cache>.*)',
-          },
-          // {
-          //   type: 'header',
-          //   key: 'user-agent',
-          //   value: '(?<agent>.*)',
-          // },
-        ],
-        source: '/headers',
-        destination: '/hosts/:host/headers/:encoding---:cache',
-      },
-      {
-        has: [
-          {
-            type: 'host',
-            value: '(?<host>.*)',
-          },
         ],
         source: '/posts/:id',
-        destination: '/hosts/:host/posts/:id',
+        destination: '/posts/:id/hosts/:host',
       },
       {
         has: [
@@ -56,8 +31,8 @@ module.exports = {
             value: '(?<host>.*)',
           },
         ],
-        source: '/slugs/:slug*',
-        destination: '/hosts/:host/slugs/:slug*',
+        source: '/:slug*',
+        destination: '/:slug*/:host',
       },
     ];
   },
