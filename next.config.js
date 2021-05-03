@@ -27,18 +27,38 @@ module.exports = {
               value: '(?<encoding>.*)',
             },
             {
-              type: 'header',
-              key: 'cache-control',
-              value: '(?<cache>.*)',
+              type: 'query',
+              key: 'x',
+              value: '(?<x>.*)',
             },
-            // {
-            //   type: 'header',
-            //   key: 'user-agent',
-            //   value: '(?<agent>.*)',
-            // },
           ],
-          source: '/headers',
-          destination: '/hosts/:host/headers/:encoding---:cache',
+          source: '/headers/:slug*',
+          destination: '/headers/:slug*/host/:host/encoding/:encoding/x/:x',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+            {
+              type: 'header',
+              key: 'accept-encoding',
+              value: '(?<encoding>.*)',
+            },
+          ],
+          source: '/headers/:slug*',
+          destination: '/headers/:slug*/host/:host/encoding/:encoding/x/null',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/headers/:slug*',
+          destination: '/headers/:slug*/host/:host/encoding/null/x/null',
         },
         {
           has: [
@@ -59,19 +79,6 @@ module.exports = {
           ],
           source: '/slugs/:slug*',
           destination: '/hosts/:host/slugs/:slug*',
-        },
-      ],
-      //Hack to support catch-all routes until supported by proxy back to another app https://github.com/acorcutt/next-multi-host/tree/norewrites without host rewrites
-      fallback: [
-        {
-          has: [
-            {
-              type: 'host',
-              value: '(?<host>.*)',
-            },
-          ],
-          source: '/:slug*',
-          destination: 'https://next-multi-host-r80x19czo-acorcutt.vercel.app/hosts/:host/slugs/:slug*',
         },
       ],
     };

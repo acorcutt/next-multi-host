@@ -4,14 +4,14 @@ import { useRouter } from 'next/router';
 
 import Header from 'components/header';
 import Footer from 'components/footer';
-export default function Home({ host, header, time }) {
+export default function Home({ host, headers, time }) {
   const router = useRouter();
 
   // Host available on query from router if blocking or fallback
   const query = router.query;
 
   // Or params
-  console.log(host, header, time, query);
+  console.log(host, headers, time, query);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function Home({ host, header, time }) {
       <h1>Headers - Host: {host}</h1>
       <p>
         <b>Header:</b>
-        <i>{header}</i>
+        <i>{headers.join('::')}</i>
       </p>
       <p>
         <b>Generated At:</b>
@@ -39,16 +39,15 @@ export async function getStaticProps(context) {
   // Available on server render
   console.log('getStaticProps', context);
 
-  const host = context.params.host;
-  const header = context.params.header;
+  const headers = context.params.headers || [];
 
   const time = Date.now();
 
   return {
     props: {
-      host,
+      host: headers[headers.lastIndexOf('host') + 1] || null,
       time,
-      header,
+      headers,
     },
     // revalidate: 10,
   };
