@@ -32,7 +32,7 @@ module.exports = {
           },
         ],
         source: '/:slug*',
-        destination: '/:slug*/:host',
+        destination: '/slugs/:slug*/:host',
       },
     ];
   },
