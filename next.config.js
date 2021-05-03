@@ -22,8 +22,8 @@ module.exports = {
           },
           {
             type: 'header',
-            key: 'connection',
-            value: '(?<connection>.*)',
+            key: 'accept-encoding',
+            value: '(?<encoding>.*)',
           },
           {
             type: 'header',
@@ -37,7 +37,7 @@ module.exports = {
           // },
         ],
         source: '/headers',
-        destination: '/hosts/:host/headers/:connection---:cache',
+        destination: '/hosts/:host/headers/:encoding---:cache',
       },
       {
         has: [
