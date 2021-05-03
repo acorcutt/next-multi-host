@@ -61,7 +61,7 @@ module.exports = {
           destination: '/hosts/:host/slugs/:slug*',
         },
       ],
-      //Hack to support catch-all routes until supported by proxy back to itself
+      //Hack to support catch-all routes until supported by proxy back to another app without catch-all route
       fallback: [
         {
           has: [
@@ -71,7 +71,7 @@ module.exports = {
             },
           ],
           source: '/:slug*',
-          destination: 'https://next-multi-host.vercel.app/hosts/:host/slugs/:slug*',
+          destination: 'https://next-multi-host-h9k4oub74-acorcutt.vercel.app/hosts/:host/slugs/:slug*',
         },
       ],
     };
