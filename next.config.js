@@ -32,7 +32,7 @@ module.exports = {
           },
         ],
         source: '/:slug*',
-        destination: '/slugs/:slug*/:host',
+        destination: 'https://next-multi-host.vercel.app/hosts/:host/slugs/:slug*',
       },
     ];
   },
