@@ -61,7 +61,7 @@ module.exports = {
           destination: '/hosts/:host/slugs/:slug*',
         },
       ],
-      //Hack to support catch-all routes until supported by proxy back to another app without catch-all route
+      //Hack to support catch-all routes until supported by proxy back to another app https://github.com/acorcutt/next-multi-host/tree/norewrites without host rewrites
       fallback: [
         {
           has: [
@@ -71,7 +71,7 @@ module.exports = {
             },
           ],
           source: '/:slug*',
-          destination: 'https://next-multi-host-h9k4oub74-acorcutt.vercel.app/hosts/:host/slugs/:slug*',
+          destination: 'https://next-multi-host-r80x19czo-acorcutt.vercel.app/hosts/:host/slugs/:slug*',
         },
       ],
     };
