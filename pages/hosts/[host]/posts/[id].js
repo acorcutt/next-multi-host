@@ -13,6 +13,10 @@ export default function Post({ host, id, time }) {
   // Or params
   console.log(host, id, time, query);
 
+  if (id == 'clienterror') {
+    throw new Error('Client Error Test');
+  }
+
   return (
     <div>
       <Head>
@@ -42,6 +46,10 @@ export async function getStaticProps(context) {
   const id = context.params.id;
 
   const time = Date.now();
+
+  if (id == 'servererror') {
+    throw new Error('Server Error Test');
+  }
 
   return {
     props: {
