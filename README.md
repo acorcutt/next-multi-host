@@ -1,4 +1,7 @@
-# Multiple domain hosting on [next.js](https://nextjs.org)
+#### ⚠️ &nbsp; [next.js v12+](https://nextjs.org) now supports [middleware](https://nextjs.org/docs/middleware) which can be used for [hostname-rewrites](https://github.com/vercel/examples/tree/main/edge-functions/hostname-rewrites) and more!
+---
+
+# Multiple domain hosting on [next.js](https://nextjs.org) using [rewrites](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
 
 Using rewrites to support multiple hosts with caching, fallbacks and static rendering.
 
